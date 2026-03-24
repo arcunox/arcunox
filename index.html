@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Arcunox Alias Generator</title>
+  <link rel="icon" href="data:,">
+  <title>arcunox / alias generator</title>
 
   <style>
 html, body,
@@ -77,6 +78,18 @@ body {
   margin-top: 16px;
   font-size: 10px;
   letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.donate {
+  margin-top: 20px;
+}
+
+.donate a {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-decoration: none;
   text-transform: uppercase;
   color: #555;
 }
@@ -167,6 +180,9 @@ input::placeholder {
   padding: 4px 6px;
   cursor: pointer;
   white-space: nowrap;
+  min-width: 60px;
+  text-align: center;
+
 }
 
 /* segmented controls */
@@ -251,6 +267,10 @@ input::placeholder {
   </div>
 
   <div class="footnote">No logs. No analytics. All client‑side.</div>
+
+  <div class="donate">
+   <a href="https://donate.arcunox.com" target="_blank" rel="noopener noreferrer">donate</a>
+  </div>
 
 </div>
 
@@ -363,6 +383,5 @@ input::placeholder {
 
   generateAlias();
 </script>
-
 </body>
 </html>
