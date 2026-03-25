@@ -6,27 +6,7 @@
   <title>arcunox / donate</title>
 
   <style>
-html, body,
-#app,
-.plate,
-.wrap,
-.titlebar,
-.footnote,
-.title,
-.row,
-label,
-div,
-section,
-input,
-button,
-.btn-generate,
-.copy-btn,
-.output,
-.output span {
-  box-sizing: border-box;
-}
-
-html, body {
+html {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -35,6 +15,11 @@ html, body {
   color: #f5f5f5;
   font-family: system-ui, -apple-system, BlinkMacSystemFont,
                "SF Pro Text", "Segoe UI", sans-serif;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 body {
@@ -42,6 +27,7 @@ body {
   justify-content: center;
   align-items: flex-start;
   padding-top: 40px;
+  margin: 0;
 }
 
 #app {
