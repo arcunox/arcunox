@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" href="data:,">
+<title>Arcunox Alias Generator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Arcunox","operatingSystem":"Web","applicationCategory":"Utility","url":"https://arcunox.com"}
+</script>
+<style>
+:root {
+--bg-black: #000000;
+--bg-charcoal: #0a0a0a;
+--bg-graphite: #1a1a1a;
+--border-gray: #2a2a2a;
+--text-white: #ffffff;
+--text-gray: #a0a0a0;
+--accent-blue: #3a7bff;
+
+--space-0: 0;
+--space-1: 4px;
+--space-2: 8px;
+--space-3: 16px;
+--space-4: 24px;
+--space-5: 32px;
+--space-6: 48px;
+--space-7: 64px;
+--space-8: 96px;
+}
+
+* {box-sizing: border-box;margin: 0;padding: 0;}
+
+html, body {background: var(--bg-black);color: var(--text-white);font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;}
+
+body {display: flex;flex-direction: column;min-height: 100vh;}
+
+.page {max-width: 1440px;margin: 0 auto;padding: var(--space-7) var(--space-6);}
+
+@media (max-width: 900px) {
+.page {
+padding: var(--space-5) var(--space-3);
+}
+}
+
+.nav {display: flex;align-items: center;justify-content: space-between;border-bottom: 2px solid var(--border-gray);padding-bottom: var(--space-3);margin-bottom: var(--space-6);}
+
+.nav-logo {font-weight: 700;letter-spacing: 0.12em;font-size: 14px;}
+
+.nav-links {display: flex;gap: var(--space-4);font-size: 14px;}
+
+.nav-link {text-decoration: none;color: var(--text-white);text-transform: uppercase;letter-spacing: 0.08em;border-bottom: 1px solid transparent;padding-bottom: 2px;}
+
+.nav-link:hover {border-bottom-color: var(--text-white);}
+
+.hero {display: grid;grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);gap: var(--space-6);margin-bottom: var(--space-7);}
+
+@media (max-width: 900px) {
+.hero {
+grid-template-columns: 1fr;
+}
+}
+
+.hero-title {font-size: 48px;font-weight: 800;text-transform: uppercase;line-height: 1.05;margin-bottom: var(--space-4);}
+
+.hero-subtitle {font-size: 18px;color: var(--text-gray);max-width: 32rem;margin-bottom: var(--space-5);}
+
+.hero-ctas {display: flex;flex-wrap: wrap;gap: var(--space-3);}
+
+.btn {border-radius: 0;border: 2px solid var(--text-white);padding: 12px 24px;font-size: 14px;text-transform: uppercase;letter-spacing: 0.12em;cursor: pointer;background: transparent;color: var(--text-white);}
+
+.btn-primary {background: var(--text-white);color: var(--bg-black);}
+
+.btn-primary:hover {background: var(--bg-black);color: var(--text-white);}
+
+.btn-secondary:hover {border-color: var(--accent-blue);}
+
+.hero-slab {background: var(--bg-charcoal);border: 2px solid var(--border-gray);padding: var(--space-5);display: flex;flex-direction: column;gap: var(--space-4);}
+
+.hero-slab-label {font-size: 12px;letter-spacing: 0.16em;text-transform: uppercase;color: var(--text-gray);}
+
+.console {border: 2px solid var(--border-gray);background: var(--bg-black);font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size: 14px;}
+
+.console-row {border-bottom: 2px solid var(--border-gray);padding: var(--space-3) var(--space-4);}
+
+.console-row:last-child {border-bottom: none;}
+
+.console-label {text-transform: uppercase;letter-spacing: 0.16em;font-size: 11px;color: var(--text-gray);margin-bottom: var(--space-2);}
+
+.console-input {width: 100%;background: var(--bg-charcoal);border: 2px solid var(--border-gray);color: var(--text-white);padding: 10px 12px;font-family: inherit;font-size: 14px;}
+
+.console-input:focus {outline: none;border-color: var(--accent-blue);}
+
+.mode-toggle {display: inline-flex;gap: var(--space-2);flex-wrap: wrap;}
+
+.mode-pill {padding: 6px 12px;border: 2px solid var(--border-gray);text-transform: uppercase;letter-spacing: 0.12em;font-size: 11px;cursor: pointer;}
+
+.mode-pill.active {background: var(--text-white);color: var(--bg-black);border-color: var(--text-white);}
+
+.console-output {color: var(--accent-blue);margin-top: var(--space-2);word-break: break-all;}
+
+.console-actions {display: flex;align-items: center;gap: 12px;}
+
+.section {margin-bottom: var(--space-7);}
+
+.section-header {font-size: 18px;text-transform: uppercase;letter-spacing: 0.16em;margin-bottom: var(--space-4);color: var(--text-gray);}
+
+.triptych {display: grid;grid-template-columns: repeat(3, minmax(0, 1fr));border-top: 2px solid var(--border-gray);border-bottom: 2px solid var(--border-gray);}
+
+@media (max-width: 900px) {
+.triptych {
+grid-template-columns: 1fr;
+}
+}
+
+.triptych-col {padding: var(--space-5);border-right: 2px solid var(--border-gray);}
+
+.triptych-col:last-child {border-right: none;}
+
+.triptych-title {font-size: 16px;text-transform: uppercase;letter-spacing: 0.14em;margin-bottom: var(--space-3);}
+
+.triptych-body {font-size: 15px;color: var(--text-gray);}
+
+.modes-grid {display: grid;grid-template-columns: repeat(3, minmax(0, 1fr));gap: var(--space-4);}
+
+@media (max-width: 900px) {
+.modes-grid {
+grid-template-columns: 1fr;
+}
+}
+
+.mode-card {background: var(--bg-graphite);border: 2px solid var(--border-gray);padding: var(--space-5);display: flex;flex-direction: column;gap: var(--space-3);transition: border-top 0.15s ease;}
+
+.mode-card:hover {border-top-color: var(--accent-blue);background: #141414;}
+
+.hero-left {display: flex;flex-direction: column;gap: 24px;}
+
+.hero-info {display: flex;flex-direction: column;gap: 8px;}
+
+.hero-info-label {font-size: 12px;letter-spacing: 0.16em;text-transform: uppercase;color: var(--text-gray);}
+
+.hero-info-list {list-style: none;padding: 0;margin: 0;color: var(--text-gray);font-size: 14px;line-height: 1.4;}
+
+.hero-info-list li strong {color: var(--text-white);font-weight: 600;}
+
+.mode-card-title {text-transform: uppercase;letter-spacing: 0.14em;font-size: 14px;}
+
+.mode-card-body {font-size: 15px;color: var(--text-gray);}
+
+.trust-beam {background: var(--bg-black);border-top: 2px solid var(--border-gray);border-bottom: 2px solid var(--border-gray);padding: var(--space-5) var(--space-4);text-align: center;font-size: 14px;text-transform: uppercase;letter-spacing: 0.16em;}
+
+.footer {border-top: 1px solid var(--border-gray);padding: var(--space-4) var(--space-6);font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size: 12px;display: flex;justify-content: space-between;align-items: center;gap: var(--space-4);}
+
+@media (max-width: 900px) {
+.footer {
+flex-direction: column;
+align-items: flex-start;
+padding-inline: var(--space-3);
+}
+}
+
+.footer-links {display: flex;gap: var(--space-3);flex-wrap: wrap;}
+
+.footer-link {text-decoration: none;color: var(--text-gray);text-transform: uppercase;letter-spacing: 0.12em;}
+
+.footer-link:hover {color: var(--text-white);}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="nav">
+<div class="nav-logo">ARCUNOX</div>
+<nav class="nav-links">
+<a href="#generator" class="nav-link">Alias Generator</a>
+<!--<a href="#how-it-works" class="nav-link">System Overview</a>-->
+</nav>
+</header>
+
+<main>
+<section class="hero">
+<div>
+<h1 class="hero-title">Arcunox Alias Generator</h1>
+<p class="hero-subtitle">A monolithic identity engine for deterministic, privacy-preserving aliases. Inspectable logic. No hidden state. No sentiment.</p>
+
+<div class="hero-info">
+<div class="hero-info-label">How it works</div>
+
+<ul class="hero-info-list">
+<li><strong>Input:</strong>  Provide a seed: email, domain, context, or any custom string. The same seed can be reused across modes.</li>
+<li><strong>Transform:</strong> Arcunox applies deterministic, inspectable logic. No tracking, no analytics, no hidden state or side channels.</li>
+<li><strong>Output:</strong> You receive a clean alias you can reuse, revoke, or rotate - without exposing identity, metadata, or patterns.</li>
+</ul>
+</div>
+</div>
+
+<aside class="hero-slab" id="generator">
+<div class="hero-slab-label">Inline console</div>
+<div class="console">
+<div class="console-row">
+<div class="console-label">Input seed</div>
+<input class="console-input" placeholder="enter seed or context" />
+</div>
+<div class="console-row">
+<div class="console-label">Input Domain</div>
+<input class="console-input" placeholder="enter domain" />
+</div>
+<div class="console-row">
+<div class="console-label">Prefix</div>
+<div class="mode-toggle">
+<div class="mode-pill active">Yes</div>
+<div class="mode-pill">No</div>
+</div>
+</div>
+<div class="console-row">
+<div class="console-label">Seperator</div>
+<div class="mode-toggle">
+<div class="mode-pill active">None</div>
+<div class="mode-pill">Underscore</div>
+<div class="mode-pill">Hyphen</div>
+<div class="mode-pill">Period</div>
+</div>
+</div>
+<div class="console-row">
+<div class="console-label">Output</div>
+<div class="console-output">arcunox-7f3a9c</div>
+</div>
+<div class="console-row console-actions">
+<button class="btn btn-primary">Generate</button>
+<button class="btn btn-primary">Copy</button>
+</div>
+</div>
+</aside>
+</section>
+
+<section class="section">
+<div class="trust-beam">
+No tracking . No analytics . All client-side 
+</div>
+</section>
+</main>
+</div>
+
+<footer class="footer" id="contact">
+<div>ARCUNOX</div>
+<div class="footer-links">
+<!--<a href="#" class="footer-link">Privacy</a>
+<a href="#" class="footer-link">Documentation (Soon)</a>-->
+</div>
+</footer>
+<script type="module">
+import { MODES } from "./vocab.js";
+
+function randInt(min, max) {
+  const range = max - min + 1;
+  const buf = new Uint32Array(1);
+  crypto.getRandomValues(buf);
+  return min + (buf[0] % range);
+}
+
+function randomChoice(arr) {
+  return arr[randInt(0, arr.length - 1)];
+}
+
+function randomEntropy(len) {
+  const letters = "abcdefghjkmnpqrstuvwxyz";
+  const digits  = "23456789";
+  const chars   = letters + digits;
+
+  let out = "";
+  for (let i = 0; i < len; i++) {
+    out += chars.charAt(randInt(0, chars.length - 1));
+  }
+
+  
+  if (!/[0-9]/.test(out)) {
+    const pos   = randInt(0, len - 1);
+    const digit = digits.charAt(randInt(0, digits.length - 1));
+    out = out.substring(0, pos) + digit + out.substring(pos + 1);
+  }
+
+  return out;
+}
+
+function normalizeShard(seed, fallbackShards) {
+  const s = (seed || "").trim();
+  if (!s) return randomChoice(fallbackShards);
+  return s.toLowerCase().replace(/\s+/g, "-");
+}
+
+const consoleInputs = document.querySelectorAll(".console-input");
+const seedInput     = consoleInputs[0];
+const domainInput   = consoleInputs[1];
+
+const prefixPills   = document.querySelectorAll("#generator .console-row:nth-child(3) .mode-pill");
+const sepPills      = document.querySelectorAll("#generator .console-row:nth-child(4) .mode-pill");
+
+const outputEl      = document.querySelector("#generator .console-output");
+
+const actionButtons = document.querySelectorAll("#generator .console-actions .btn");
+const generateBtn   = actionButtons[0];
+const copyBtn       = actionButtons[1];
+
+let prefixEnabled = true;
+let separator = "";
+let currentMode = "abstract"; 
+
+function wirePills(pills, callback) {
+  pills.forEach(pill => {
+    pill.addEventListener("click", () => {
+      pills.forEach(p => p.classList.remove("active"));
+      pill.classList.add("active");
+      callback(pill.textContent.trim().toLowerCase());
+    });
+  });
+}
+
+wirePills(prefixPills, val => {
+  prefixEnabled = (val === "yes");
+});
+
+wirePills(sepPills, val => {
+  if (val === "none") separator = "";
+  else if (val === "underscore") separator = "_";
+  else if (val === "hyphen") separator = "-";
+  else if (val === "period") separator = ".";
+});
+
+function generateAlias() {
+  const mode = MODES[currentMode];
+
+  const seed = seedInput.value.trim();
+  const domainRaw = domainInput.value.trim().toLowerCase();
+  const domain = domainRaw === "" ? "" : domainRaw;
+
+  const prefix  = randomChoice(mode.prefixes);
+  const entropy = randomEntropy(randInt(4, 6));
+  const shard   = normalizeShard(seed, mode.shards);
+
+  let localPart = "";
+
+  if (prefixEnabled) {
+    localPart = `${prefix}${separator}${entropy}${separator}${shard}`;
+  } else {
+    localPart = `${entropy}${separator}${shard}`;
+  }
+
+  let alias = domain === "" ? localPart : `${localPart}@${domain}`;
+
+  
+  alias = alias.toLowerCase();
+
+  outputEl.textContent = alias;
+  return alias;
+}
+
+copyBtn.addEventListener("click", async () => {
+  const alias = outputEl.textContent.trim();
+  if (!alias) return;
+
+  try {
+    await navigator.clipboard.writeText(alias);
+    const original = copyBtn.textContent;
+    copyBtn.textContent = "Copied";
+    setTimeout(() => (copyBtn.textContent = original), 900);
+  } catch (e) {}
+});
+generateBtn.addEventListener("click", generateAlias);
+generateAlias();
+</script>
+</body>
+</html>
+
