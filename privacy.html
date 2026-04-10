@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcunox Privacy</title>
+
+  <style>
+    :root {
+      --bg-black: #000000;
+      --bg-charcoal: #0a0a0a;
+      --bg-graphite: #1a1a1a;
+      --border-gray: #2a2a2a;
+      --text-white: #ffffff;
+      --text-gray: #a0a0a0;
+      --accent-blue: #3a7bff;
+
+      --space-0: 0;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 16px;
+      --space-4: 24px;
+      --space-5: 32px;
+      --space-6: 48px;
+      --space-7: 64px;
+      --space-8: 96px;
+    }
+
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: local("JetBrains Mono"), local("JetBrainsMono");
+    }
+
+    body {
+      background: var(--bg-black);
+      color: var(--text-white);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: var(--space-7) var(--space-4) var(--space-8);
+    }
+
+    main {
+      display: block;
+    }
+
+    h1, h2 {
+      font-weight: 700;
+      margin-bottom: var(--space-3);
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      font-size: 32px;
+      text-transform: uppercase;
+      color: var(--accent-blue);
+    }
+
+    h2 {
+      font-size: 20px;
+      text-transform: uppercase;
+      color: var(--text-gray);
+      margin-top: var(--space-6);
+    }
+
+    p, li {
+      color: var(--text-gray);
+      line-height: 1.6;
+      font-size: 15px;
+      margin-bottom: var(--space-3);
+    }
+
+    ul {
+      padding-left: var(--space-4);
+    }
+
+    strong {
+      color: var(--text-white);
+    }
+
+    a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer.site-footer {
+      border-top: 1px solid var(--border-gray);
+      padding: var(--space-4) 0;
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-4);
+      margin-top: var(--space-7);
+    }
+
+    .site-footer-left {
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-gray);
+    }
+
+    .site-footer-links {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+
+    .site-footer-link {
+      text-decoration: none;
+      color: var(--text-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .site-footer-link:hover {
+      color: var(--text-white);
+    }
+
+    @media (max-width: 900px) {
+      footer.site-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <main>
+      <h1>Privacy</h1>
+
+      <p>
+        Arcunox is designed to avoid collecting, storing, or transmitting personal data.
+        Alias generation is deterministic, local, and stateless. This page describes what
+        Arcunox does and does not do.
+      </p>
+
+      <h2>No Data Collection</h2>
+      <p>Arcunox does not collect, store, log, or transmit any of the following:</p>
+      <ul>
+        <li>Emails, seeds, or alias inputs</li>
+        <li>Generated aliases</li>
+        <li>IP addresses or device information</li>
+        <li>Usage analytics or behavioural data</li>
+        <li>Cookies, tracking pixels, or session identifiers</li>
+      </ul>
+
+      <h2>Local-Only Computation</h2>
+      <p>
+        All alias generation happens entirely in your browser.
+        No requests are sent to a server for computation, storage, or analysis.
+      </p>
+
+      <h2>No Accounts, No Sync, No Telemetry</h2>
+      <p>
+        Arcunox does not use accounts, authentication, cloud storage, or telemetry systems.
+        There is no backend database and no server-side state.
+      </p>
+
+      <h2>Third-Party Services</h2>
+      <p>
+        Arcunox does not embed third-party scripts, analytics, fonts, or trackers.
+        No external services receive data from your usage.
+      </p>
+
+      <h2>Security Notes</h2>
+      <p>
+        Because Arcunox stores nothing, there is no stored data to breach or leak.
+        Alias generation logic is inspectable and deterministic.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For questions or issues, contact the maintainer via the project repository.
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-left">ARCUNOX</div>
+      <div class="site-footer-links">
+        <a href="/" class="site-footer-link">Home</a>
+        <a href="/docs" class="site-footer-link">Docs</a>
+        <a href="/privacy" class="site-footer-link">Privacy</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

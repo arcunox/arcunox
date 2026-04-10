@@ -5,7 +5,8 @@
 <link rel="icon" href="data:,">
 <title>Arcunox Alias Generator</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Deterministic alias generator for privacy-focused workflows.">
+<meta name="description" content="Deterministic email alias generator for privacy-focused workflows.">
+
 <script type="application/ld+json">
 {
 "@context": "https://schema.org",
@@ -35,6 +36,7 @@
 ]
 }
 </script>
+
 <style>
 :root {
 --bg-black: #000000;
@@ -65,229 +67,187 @@ body {display: flex;flex-direction: column;min-height: 100vh;}
 .page {max-width: 1440px;margin: 0 auto;padding: var(--space-7) var(--space-6);}
 
 @media (max-width: 900px) {
-.page {
-padding: var(--space-5) var(--space-3);
-}
+.page {padding: var(--space-5) var(--space-3);}
 }
 
 .nav {display: flex;align-items: center;justify-content: space-between;border-bottom: 2px solid var(--border-gray);padding-bottom: var(--space-3);margin-bottom: var(--space-6);}
-
 .nav-logo {font-weight: 700;letter-spacing: 0.12em;font-size: 14px;}
-
 .nav-links {display: flex;gap: var(--space-4);font-size: 14px;}
-
 .nav-link {text-decoration: none;color: var(--text-white);text-transform: uppercase;letter-spacing: 0.08em;border-bottom: 1px solid transparent;padding-bottom: 2px;}
-
 .nav-link:hover {border-bottom-color: var(--text-white);}
 
 .hero {display: grid;grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);gap: var(--space-6);margin-bottom: var(--space-7);}
-
-@media (max-width: 900px) {
-.hero {
-grid-template-columns: 1fr;
-}
-}
+@media (max-width: 900px) {.hero {grid-template-columns: 1fr;}}
 
 .hero-title {font-size: 48px;font-weight: 800;text-transform: uppercase;line-height: 1.05;margin-bottom: var(--space-4);}
-
 .hero-subtitle {font-size: 18px;color: var(--text-gray);max-width: 32rem;margin-bottom: var(--space-5);}
 
-.hero-ctas {display: flex;flex-wrap: wrap;gap: var(--space-3);}
-
-.btn {border-radius: 0;border: 2px solid var(--text-white);padding: 12px 24px;font-size: 14px;text-transform: uppercase;letter-spacing: 0.12em;cursor: pointer;background: transparent;color: var(--text-white);}
-
-.btn-primary {background: var(--text-white);color: var(--bg-black);}
-
-.btn-primary:hover {background: var(--bg-black);color: var(--text-white);}
-
-.btn-secondary:hover {border-color: var(--accent-blue);}
+.hero-info {display: flex;flex-direction: column;gap: 8px;}
+.hero-info-label {font-size: 12px;letter-spacing: 0.16em;text-transform: uppercase;color: var(--text-gray);}
+.hero-info-list {list-style: none;padding: 0;margin: 0;color: var(--text-gray);font-size: 14px;line-height: 1.4;}
+.hero-info-list li strong {color: var(--text-white);font-weight: 600;}
 
 .hero-slab {background: var(--bg-charcoal);border: 2px solid var(--border-gray);padding: var(--space-5);display: flex;flex-direction: column;gap: var(--space-4);}
-
 .hero-slab-label {font-size: 12px;letter-spacing: 0.16em;text-transform: uppercase;color: var(--text-gray);}
 
-.console {border: 2px solid var(--border-gray);background: var(--bg-black);font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size: 14px;}
-
+.console {border: 2px solid var(--border-gray);background: var(--bg-black);font-family: "JetBrains Mono", monospace;font-size: 14px;}
 .console-row {border-bottom: 2px solid var(--border-gray);padding: var(--space-3) var(--space-4);}
-
 .console-row:last-child {border-bottom: none;}
-
 .console-label {text-transform: uppercase;letter-spacing: 0.16em;font-size: 11px;color: var(--text-gray);margin-bottom: var(--space-2);}
-
 .console-input {width: 100%;background: var(--bg-charcoal);border: 2px solid var(--border-gray);color: var(--text-white);padding: 10px 12px;font-family: inherit;font-size: 14px;}
-
 .console-input:focus {outline: none;border-color: var(--accent-blue);}
 
 .mode-toggle {display: inline-flex;gap: var(--space-2);flex-wrap: wrap;}
-
 .mode-pill {padding: 6px 12px;border: 2px solid var(--border-gray);text-transform: uppercase;letter-spacing: 0.12em;font-size: 11px;cursor: pointer;}
-
 .mode-pill.active {background: var(--text-white);color: var(--bg-black);border-color: var(--text-white);}
 
 .console-output {color: var(--accent-blue);margin-top: var(--space-2);word-break: break-all;}
-
 .console-actions {display: flex;align-items: center;gap: 12px;}
 
 .section {margin-bottom: var(--space-7);}
-
-.section-header {font-size: 18px;text-transform: uppercase;letter-spacing: 0.16em;margin-bottom: var(--space-4);color: var(--text-gray);}
-
-.triptych {display: grid;grid-template-columns: repeat(3, minmax(0, 1fr));border-top: 2px solid var(--border-gray);border-bottom: 2px solid var(--border-gray);}
-
-@media (max-width: 900px) {
-.triptych {
-grid-template-columns: 1fr;
-}
-}
-
-.triptych-col {padding: var(--space-5);border-right: 2px solid var(--border-gray);}
-
-.triptych-col:last-child {border-right: none;}
-
-.triptych-title {font-size: 16px;text-transform: uppercase;letter-spacing: 0.14em;margin-bottom: var(--space-3);}
-
-.triptych-body {font-size: 15px;color: var(--text-gray);}
-
-.modes-grid {display: grid;grid-template-columns: repeat(3, minmax(0, 1fr));gap: var(--space-4);}
-
-@media (max-width: 900px) {
-.modes-grid {
-grid-template-columns: 1fr;
-}
-}
-
-.mode-card {background: var(--bg-graphite);border: 2px solid var(--border-gray);padding: var(--space-5);display: flex;flex-direction: column;gap: var(--space-3);transition: border-top 0.15s ease;}
-
-.mode-card:hover {border-top-color: var(--accent-blue);background: #141414;}
-
-.hero-left {display: flex;flex-direction: column;gap: 24px;}
-
-.hero-info {display: flex;flex-direction: column;gap: 8px;}
-
-.hero-info-label {font-size: 12px;letter-spacing: 0.16em;text-transform: uppercase;color: var(--text-gray);}
-
-.hero-info-list {list-style: none;padding: 0;margin: 0;color: var(--text-gray);font-size: 14px;line-height: 1.4;}
-
-.hero-info-list li strong {color: var(--text-white);font-weight: 600;}
-
-.mode-card-title {text-transform: uppercase;letter-spacing: 0.14em;font-size: 14px;}
-
-.mode-card-body {font-size: 15px;color: var(--text-gray);}
-
 .trust-beam {background: var(--bg-black);border-top: 2px solid var(--border-gray);border-bottom: 2px solid var(--border-gray);padding: var(--space-5) var(--space-4);text-align: center;font-size: 14px;text-transform: uppercase;letter-spacing: 0.16em;}
 
-.footer {border-top: 1px solid var(--border-gray);padding: var(--space-4) var(--space-6);font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size: 12px;display: flex;justify-content: space-between;align-items: center;gap: var(--space-4);}
+
+.site-footer {
+  border-top: 1px solid var(--border-gray);
+  padding: var(--space-4) 0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+}
+
+.site-footer-left {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-gray);
+}
+
+.site-footer-links {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.site-footer-link {
+  text-decoration: none;
+  color: var(--text-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.site-footer-link:hover {
+  color: var(--text-white);
+}
 
 @media (max-width: 900px) {
-.footer {
-flex-direction: column;
-align-items: flex-start;
-padding-inline: var(--space-3);
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
-}
-
-.footer-links {display: flex;gap: var(--space-3);flex-wrap: wrap;}
-
-.footer-link {text-decoration: none;color: var(--text-gray);text-transform: uppercase;letter-spacing: 0.12em;}
-
-.footer-link:hover {color: var(--text-white);}
 </style>
 </head>
+
 <body>
+
 <div class="page">
+
 <header class="nav">
-<div class="nav-logo">ARCUNOX</div>
-<nav class="nav-links">
-<a href="#generator" class="nav-link">Alias Generator</a>
-<!--<a href="#how-it-works" class="nav-link">System Overview</a>-->
-</nav>
+  <div class="nav-logo">ARCUNOX</div>
+  <nav class="nav-links">
+    <a href="#generator" class="nav-link">Alias Generator</a>
+  </nav>
 </header>
 
 <main>
+
 <section class="hero">
-<div>
-<h1 class="hero-title">Arcunox Alias Generator</h1>
-<p class="hero-subtitle">
-A monolithic identity engine for deterministic, privacy-preserving <strong>email aliases</strong>. 
-Inspectable logic. No hidden state. No sentiment. 
-Generates clean, reusable <strong>email alias surfaces</strong> for controlled, long-term identity workflows.
-</p>
+  <div>
+    <h1 class="hero-title">Arcunox Alias Generator</h1>
+    <p class="hero-subtitle">
+      A monolithic identity engine for deterministic, privacy-preserving <strong>email aliases</strong>.
+      Inspectable logic. No hidden state. No sentiment.
+      Generates clean, reusable <strong>email alias surfaces</strong> for controlled, long-term identity workflows.
+    </p>
 
+    <div class="hero-info">
+      <div class="hero-info-label">How it works</div>
+      <ul class="hero-info-list">
+        <li><strong>Input:</strong> Provide a seed — email, domain, context phrase, or any custom string.</li>
+        <li><strong>Transform:</strong> Deterministic, inspectable logic. No tracking, no analytics.</li>
+        <li><strong>Output:</strong> A stable, reusable alias you can rotate or dedicate to services.</li>
+      </ul>
+    </div>
+  </div>
 
-<div class="hero-info">
-<div class="hero-info-label">How it works</div>
-<ul class="hero-info-list">
-<li>
-<strong>Input:</strong>
-Provide a seed — an email, domain, context phrase, or any custom string.  
-This seed defines the identity boundary you want to create. Reuse it for consistency, or switch it to segment new surfaces.
-</li>
-<li><strong>Transform:</strong>
-Arcunox runs the seed through deterministic, fully inspectable logic to produce an email-ready alias.  
-No accounts, no tracking, no analytics, no behavioural profiling — just clean computation designed for privacy workflows.
-</li>
-<li>
-<strong>Output:</strong>
-You receive a stable, reusable email alias you can rotate, revoke, or dedicate to specific services.  
-No metadata leakage, no pattern exposure, and no randomization that breaks long-term workflows — just a controlled identity surface you own.
-</li>
-</ul>
-</div>
-</div>
-<aside class="hero-slab" id="generator">
-<div class="hero-slab-label">Inline console</div>
-<div class="console">
-<div class="console-row">
-<div class="console-label">Input seed</div>
-<input class="console-input" placeholder="enter seed or context" />
-</div>
-<div class="console-row">
-<div class="console-label">Input Domain</div>
-<input class="console-input" placeholder="enter domain" />
-</div>
-<div class="console-row">
-<div class="console-label">Prefix</div>
-<div class="mode-toggle">
-<div class="mode-pill active">Yes</div>
-<div class="mode-pill">No</div>
-</div>
-</div>
-<div class="console-row">
-<div class="console-label">Seperator</div>
-<div class="mode-toggle">
-<div class="mode-pill active">None</div>
-<div class="mode-pill">Underscore</div>
-<div class="mode-pill">Hyphen</div>
-<div class="mode-pill">Period</div>
-</div>
-</div>
-<div class="console-row">
-<div class="console-label">Output</div>
-<div class="console-output">arcunox-7f3a9c</div>
-</div>
-<div class="console-row console-actions">
-<button class="btn btn-primary">Generate</button>
-<button class="btn btn-primary">Copy</button>
-</div>
-</div>
-</aside>
+  <aside class="hero-slab" id="generator">
+    <div class="hero-slab-label">Inline console</div>
+
+    <div class="console">
+      <div class="console-row">
+        <div class="console-label">Input seed</div>
+        <input class="console-input" placeholder="enter seed or context" />
+      </div>
+
+      <div class="console-row">
+        <div class="console-label">Input Domain</div>
+        <input class="console-input" placeholder="enter domain" />
+      </div>
+
+      <div class="console-row">
+        <div class="console-label">Prefix</div>
+        <div class="mode-toggle">
+          <div class="mode-pill active">Yes</div>
+          <div class="mode-pill">No</div>
+        </div>
+      </div>
+
+      <div class="console-row">
+        <div class="console-label">Seperator</div>
+        <div class="mode-toggle">
+          <div class="mode-pill active">None</div>
+          <div class="mode-pill">Underscore</div>
+          <div class="mode-pill">Hyphen</div>
+          <div class="mode-pill">Period</div>
+        </div>
+      </div>
+
+      <div class="console-row">
+        <div class="console-label">Output</div>
+        <div class="console-output">arcunox-7f3a9c</div>
+      </div>
+
+      <div class="console-row console-actions">
+        <button class="btn btn-primary">Generate</button>
+        <button class="btn btn-primary">Copy</button>
+      </div>
+    </div>
+  </aside>
 </section>
 
 <section class="section">
-<div class="trust-beam">
-No tracking . No analytics . All client-side 
-</div>
+  <div class="trust-beam">
+    No tracking . No analytics . All client-side
+  </div>
 </section>
+
 </main>
+
+<footer class="site-footer">
+  <div class="site-footer-left">ARCUNOX</div>
+  <div class="site-footer-links">
+    <a href="/" class="site-footer-link">Home</a>
+    <a href="/docs" class="site-footer-link">Docs</a>
+    <a href="/privacy" class="site-footer-link">Privacy</a>
+  </div>
+</footer>
+
 </div>
 
-<footer class="footer" id="contact">
-<div>ARCUNOX</div>
-<div class="footer-links">
-<!--<a href="#" class="footer-link">Privacy</a>
-<a href="#" class="footer-link">Documentation (Soon)</a>-->
-</div>
-</footer>
 <script type="module">
 import { MODES } from "./vocab.js";
 
@@ -312,7 +272,6 @@ function randomEntropy(len) {
     out += chars.charAt(randInt(0, chars.length - 1));
   }
 
-  
   if (!/[0-9]/.test(out)) {
     const pos   = randInt(0, len - 1);
     const digit = digits.charAt(randInt(0, digits.length - 1));
@@ -343,7 +302,7 @@ const copyBtn       = actionButtons[1];
 
 let prefixEnabled = true;
 let separator = "";
-let currentMode = "abstract"; 
+let currentMode = "abstract";
 
 function wirePills(pills, callback) {
   pills.forEach(pill => {
@@ -387,7 +346,6 @@ function generateAlias() {
 
   let alias = domain === "" ? localPart : `${localPart}@${domain}`;
 
-  
   alias = alias.toLowerCase();
 
   outputEl.textContent = alias;
@@ -405,9 +363,10 @@ copyBtn.addEventListener("click", async () => {
     setTimeout(() => (copyBtn.textContent = original), 900);
   } catch (e) {}
 });
+
 generateBtn.addEventListener("click", generateAlias);
 generateAlias();
 </script>
+
 </body>
 </html>
-
