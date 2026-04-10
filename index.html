@@ -107,6 +107,31 @@ body {display: flex;flex-direction: column;min-height: 100vh;}
 .section {margin-bottom: var(--space-7);}
 .trust-beam {background: var(--bg-black);border-top: 2px solid var(--border-gray);border-bottom: 2px solid var(--border-gray);padding: var(--space-5) var(--space-4);text-align: center;font-size: 14px;text-transform: uppercase;letter-spacing: 0.16em;}
 
+.btn {
+  border-radius: 0;
+  border: 2px solid var(--text-white);
+  padding: 12px 24px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-white);
+}
+
+.btn-primary {
+  background: var(--text-white);
+  color: var(--bg-black);
+}
+
+.btn-primary:hover {
+  background: var(--bg-black);
+  color: var(--text-white);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-blue);
+}
 
 .site-footer {
   border-top: 1px solid var(--border-gray);
