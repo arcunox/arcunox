@@ -1,42 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url>
-    <loc>https://arcunox.com/</loc>
-    <priority>1.0</priority>
-    <changefreq>weekly</changefreq>
-  </url>
+  <url><loc>https://arcunox.com/</loc></url>
+  <url><loc>https://arcunox.com/docs</loc></url>
+  <url><loc>https://arcunox.com/privacy</loc></url>
 
-  <url>
-    <loc>https://arcunox.com/docs</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://arcunox.com/privacy</loc>
-    <priority>0.6</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <!-- Tools -->
   <url><loc>https://arcunox.com/tools/base64/</loc></url>
-  <url><loc>https://arcunox.com/tools/epoch-now/</loc></url>
-  <url><loc>https://arcunox.com/tools/epoch-convert/</loc></url>
+  <url><loc>https://arcunox.com/tools/epochconvert/</loc></url>
+  <url><loc>https://arcunox.com/tools/epochnow/</loc></url>
   <url><loc>https://arcunox.com/tools/hash/</loc></url>
   <url><loc>https://arcunox.com/tools/headers/</loc></url>
-  <url><loc>https://arcunox.com/tools/html-escape/</loc></url>
+  <url><loc>https://arcunox.com/tools/htmlescape/</loc></url>
   <url><loc>https://arcunox.com/tools/ip/</loc></url>
   <url><loc>https://arcunox.com/tools/ipinfo/</loc></url>
   <url><loc>https://arcunox.com/tools/json/</loc></url>
   <url><loc>https://arcunox.com/tools/jwt/</loc></url>
-  <url><loc>https://arcunox.com/tools/qr/</loc></url>
   <url><loc>https://arcunox.com/tools/time/</loc></url>
   <url><loc>https://arcunox.com/tools/ua/</loc></url>
   <url><loc>https://arcunox.com/tools/url/</loc></url>
-  <url><loc>https://arcunox.com/tools/uuid-bulk/</loc></url>
   <url><loc>https://arcunox.com/tools/uuid/</loc></url>
+  <url><loc>https://arcunox.com/tools/uuidbulk/</loc></url>
 
 </urlset>
+
 
 
