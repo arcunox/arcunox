@@ -1,25 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url><loc>https://arcunox.com/</loc></url>
-  <url><loc>https://arcunox.com/docs</loc></url>
-  <url><loc>https://arcunox.com/privacy</loc></url>
+<url>
+<loc>https://arcunox.com/</loc>
+</url>
 
-  <url><loc>https://arcunox.com/tools/base64/</loc></url>
-  <url><loc>https://arcunox.com/tools/epochconvert/</loc></url>
-  <url><loc>https://arcunox.com/tools/epochnow/</loc></url>
-  <url><loc>https://arcunox.com/tools/hash/</loc></url>
-  <url><loc>https://arcunox.com/tools/headers/</loc></url>
-  <url><loc>https://arcunox.com/tools/htmlescape/</loc></url>
-  <url><loc>https://arcunox.com/tools/ip/</loc></url>
-  <url><loc>https://arcunox.com/tools/ipinfo/</loc></url>
-  <url><loc>https://arcunox.com/tools/json/</loc></url>
-  <url><loc>https://arcunox.com/tools/jwt/</loc></url>
-  <url><loc>https://arcunox.com/tools/time/</loc></url>
-  <url><loc>https://arcunox.com/tools/ua/</loc></url>
-  <url><loc>https://arcunox.com/tools/url/</loc></url>
-  <url><loc>https://arcunox.com/tools/uuid/</loc></url>
-  <url><loc>https://arcunox.com/tools/uuidbulk/</loc></url>
+<url>
+<loc>https://arcunox.com/documentation/</loc>
+</url>
+
+<url>
+<loc>https://arcunox.com/philosophy/</loc>
+</url>
+
+<url>
+<loc>https://arcunox.com/privacy/</loc>
+</url>
+
+<url>
+<loc>https://arcunox.com/tools/base64/</loc>
+</url>
+
+<url>
+<loc>https://arcunox.com/tools/emailalias/</loc>
+</url>
+
+<url>
+<loc>https://arcunox.com/tools/epochconvert/</loc>
+</url>
+
+<url>
+<loc>https://arcunox.com/tools/epochnow/</loc>
+</url>
+
+<url>
+<loc>https://arcunox.com/tools/hash/</loc>
+</url>
+
+<url>
+<loc>https://arcunox.com/tools/headers/</loc>
+</url>
+
+<url>
+<loc>https://arcunox.com/tools/htmlescape/</loc>
+</url>
+
+<url>
+<loc>https://arcunox.com/tools/ip/</loc>
+</url>
+
+<url>
+<loc>https://arcunox.com/tools/ipinfo/</loc>
+</url>
+
+<url>
+<loc>https://arcunox.com/tools/json/</loc>
+</url>
+
+<url>
+<loc>https://arcunox.com/tools/jwt/</loc>
+</url>
+
+<url>
+<loc>https://arcunox.com/tools/time/</loc>
+</url>
+
+<url>
+<loc>https://arcunox.com/tools/url/</loc>
+</url>
+
+<url>
+<loc>https://arcunox.com/tools/ua/</loc>
+</url>
+
+<url>
+<loc>https://arcunox.com/tools/uuid/</loc>
+</url>
+
+<url>
+<loc>https://arcunox.com/tools/uuidbulk/</loc>
+</url>
 
 </urlset>
 

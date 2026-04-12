@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcunox — Documentation</title>
+    <meta name="description" content="Arcunox documentation. Deterministic, privacy-first utilities with no tracking, no analytics, and no network calls.">
+    <style>
+        :root { color-scheme: dark; }
+        body {
+            margin: 0;
+            padding: 3rem 2rem;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #050608;
+            color: #f5f5f5;
+            line-height: 1.55;
+        }
+        main {
+            max-width: 880px;
+            margin: 0 auto;
+            display: grid;
+            gap: 3.5rem;
+        }
+        h1 {
+            margin: 0 0 1rem;
+            font-size: 2.4rem;
+            letter-spacing: 0.03em;
+            font-weight: 600;
+        }
+        h2 {
+            margin: 0 0 1rem;
+            font-size: 1.4rem;
+            letter-spacing: 0.02em;
+            color: #d0d0d0;
+        }
+        p {
+            margin: 0 0 1.2rem;
+            color: #b3b3b3;
+            max-width: 70ch;
+        }
+        ul {
+            margin: 0;
+            padding-left: 1.2rem;
+            color: #9ea2b3;
+        }
+        li {
+            margin-bottom: 0.4rem;
+        }
+        footer {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #5f6475;
+        }
+        footer a {
+            color: #8b8fa0;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+
+    <!-- HEADER -->
+    <section>
+        <h1>Documentation</h1>
+        <p>
+            Arcunox is a collection of deterministic, privacy-first utilities.  
+            Everything runs locally. Nothing is tracked, stored, or transmitted.
+        </p>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section>
+        <h2>Philosophy</h2>
+        <p>Arcunox follows a strict set of principles:</p>
+        <ul>
+            <li>Deterministic behaviour — predictable and reproducible.</li>
+            <li>Privacy-first — no tracking, analytics, cookies, or telemetry.</li>
+            <li>Zero dependencies — no frameworks, no external JS, no external CSS.</li>
+            <li>Minimal surface area — small, focused tools with clear purpose.</li>
+            <li>Long-term stability — tools that work the same today and years from now.</li>
+        </ul>
+    </section>
+
+    <!-- ARCHITECTURE -->
+    <section>
+        <h2>Architecture</h2>
+        <p>The site uses a simple, deterministic structure:</p>
+        <ul>
+            <li><code>/</code> — Homepage and tool index.</li>
+            <li><code>/alias/</code> — Alias Generator.</li>
+            <li><code>/tools/xx/</code> — Individual utilities folders.</li>
+            <li><code>/privacy/</code> — Privacy policy.</li>
+            <li><code>/documentation/</code> — This page.</li>
+        </ul>
+        <p>
+            Each tool is a self-contained directory with a single <code>index.html</code>.  
+            No shared JS. No global CSS. No build pipeline.
+        </p>
+    </section>
+
+    <!-- SERVER-SIDE NOTE -->
+    <section>
+        <h2>Server-Side Tools</h2>
+        <p>
+            If Arcunox introduces optional server-side utilities in the future, they will follow the same rules:
+        </p>
+        <ul>
+            <li>No accounts.</li>
+            <li>No logging or analytics.</li>
+            <li>No data retention.</li>
+            <li>No storage of inputs or outputs.</li>
+            <li>Processing only — no record keeping.</li>
+        </ul>
+        <p>All requests are deleted immediately after processing.</p>
+    </section>
+
+    <!-- GITHUB -->
+    <section>
+        <h2>Development</h2>
+        <p>
+            Development notes and updates are maintained on GitHub:  
+            <a href="https://github.com/arcunox">github.com/arcunox</a>
+        </p>
+    </section>
+
+    <div>No tracking . No analytics . All client-side</div>
+
+    <!-- FOOTER SECTION -->
+    <section>
+        <footer>
+          <nav>
+            <a href="/">home</a><br>
+            <a href="/privacy/">privacy</a><br>
+            <a href="/philosophy/">philosophy</a><br>
+            <a href="https://github.com/arcunox">github</a>
+          </nav>
+        </footer>
+    </section>
+
+</main> <!-- /main -->
+
+</body>
+</html>

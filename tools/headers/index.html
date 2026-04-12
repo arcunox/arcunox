@@ -19,21 +19,23 @@
             max-width: 880px;
             margin: auto;
             display: grid;
-            gap: 1.5rem;
+            gap: 2.5rem;
         }
         h1 {
             margin: 0;
             font-size: 2rem;
             letter-spacing: 0.04em;
         }
-        p { color: #b3b3b3; }
-
+        p {
+            color: #b3b3b3;
+            max-width: 60ch;
+            white-space: pre-line;
+        }
         .panel {
             border: 1px solid #262833;
             background: radial-gradient(circle at top left, #151824 0, #050608 55%);
             padding: 1.25rem 1.5rem;
         }
-
         pre {
             background: #0b0d12;
             border: 1px solid #303344;
@@ -45,27 +47,51 @@
             white-space: pre-wrap;
             word-break: break-word;
         }
-
         footer {
-            margin-top: 0.5rem;
-            font-size: 0.8rem;
+            margin-top: 1rem;
+            font-size: 0.85rem;
             color: #5f6475;
+        }
+        footer a {
+            color: #8b8fa0;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
     <main>
+
         <section>
             <h1>Request Headers</h1>
-            <p>Inspect the exact connection metadata Cloudflare sees. No tracking, no analytics, no logs.</p>
+            <p>
+Inspect the exact connection metadata Cloudflare sees.
+All processing happens locally using client-side code.
+No tracking, no analytics, no network calls.
+            </p>
         </section>
 
         <section class="panel">
             <pre id="headers">Loading…</pre>
         </section>
 
-        <footer>No tracking. No analytics. No cookies. No logs.</footer>
+        <!-- UNIVERSAL FOOTER -->
+        <section>
+            <br><br>
+            <footer>
+              <nav>
+                <a href="/">home</a><br>
+                <a href="/documentation/">documentation</a><br>
+                <a href="/privacy/">privacy</a><br>
+                <a href="/philosophy/">philosophy</a><br>
+                <a href="https://github.com/arcunox">github</a>
+              </nav>
+            </footer>
+        </section>
+
     </main>
 
     <script>

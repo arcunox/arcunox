@@ -19,21 +19,23 @@
             max-width: 880px;
             margin: auto;
             display: grid;
-            gap: 1.5rem;
+            gap: 2.5rem;
         }
         h1 {
             margin: 0;
             font-size: 2rem;
             letter-spacing: 0.04em;
         }
-        p { color: #b3b3b3; max-width: 60ch; }
-
+        p {
+            color: #b3b3b3;
+            max-width: 60ch;
+            white-space: pre-line;
+        }
         .panel {
             border: 1px solid #262833;
             background: radial-gradient(circle at top left, #151824 0, #050608 55%);
             padding: 1.25rem 1.5rem;
         }
-
         .label {
             font-size: 0.85rem;
             text-transform: uppercase;
@@ -41,7 +43,6 @@
             color: #8b8fa0;
             margin-bottom: 0.5rem;
         }
-
         textarea {
             width: 100%;
             min-height: 140px;
@@ -58,14 +59,12 @@
             outline: 1px solid #4f7dff;
             border-color: #4f7dff;
         }
-
         .controls {
             display: flex;
             flex-wrap: wrap;
             gap: 0.75rem;
             margin-top: 0.75rem;
         }
-
         button {
             padding: 0.55rem 1.1rem;
             font-size: 0.9rem;
@@ -80,20 +79,31 @@
             background: #f5f5f5;
             color: #050608;
         }
-
         footer {
-            margin-top: 0.5rem;
-            font-size: 0.8rem;
+            margin-top: 1rem;
+            font-size: 0.85rem;
             color: #5f6475;
+        }
+        footer a {
+            color: #8b8fa0;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
     <main>
+
         <section>
             <h1>URL Encoder / Decoder</h1>
-            <p>Convert text to URL-safe encoding and decode encoded URLs. All processing happens locally — no tracking, no analytics, no logs.</p>
+            <p>
+Convert text to URL-safe encoding or decode encoded URLs.
+All processing happens locally using client-side code.
+No tracking, no analytics, no network calls.
+            </p>
         </section>
 
         <section class="panel">
@@ -116,7 +126,20 @@
             </div>
         </section>
 
-        <footer>No tracking. No analytics. No cookies. No logs.</footer>
+        <!-- UNIVERSAL FOOTER -->
+        <section>
+            <br><br>
+            <footer>
+              <nav>
+                <a href="/">home</a><br>
+                <a href="/documentation/">documentation</a><br>
+                <a href="/privacy/">privacy</a><br>
+                <a href="/philosophy/">philosophy</a><br>
+                <a href="https://github.com/arcunox">github</a>
+              </nav>
+            </footer>
+        </section>
+
     </main>
 
     <script>
@@ -125,20 +148,26 @@
 
         document.getElementById('encode').onclick = () => {
             const raw = input.value;
-            if (!raw) return output.value = '';
+            if (!raw) {
+                output.value = '';
+                return;
+            }
             try {
                 output.value = encodeURIComponent(raw);
-            } catch (e) {
+            } catch {
                 output.value = 'Error: unable to encode input.';
             }
         };
 
         document.getElementById('decode').onclick = () => {
             const raw = input.value;
-            if (!raw) return output.value = '';
+            if (!raw) {
+                output.value = '';
+                return;
+            }
             try {
                 output.value = decodeURIComponent(raw);
-            } catch (e) {
+            } catch {
                 output.value = 'Error: invalid encoded URL.';
             }
         };
@@ -152,7 +181,7 @@
             if (!output.value) return;
             try {
                 await navigator.clipboard.writeText(output.value);
-            } catch (e) {}
+            } catch {}
         };
     </script>
 </body>
