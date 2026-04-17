@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Extended IP Info</title>
     <meta name="description" content="Minimal, privacy-first extended IP information viewer using Cloudflare trace. No tracking. No analytics. No dependencies.">
+    <link rel="icon" href="data:,">
     <style>
         :root { color-scheme: dark; }
         body {
@@ -31,6 +32,8 @@
             max-width: 60ch;
             white-space: pre-line;
         }
+a {color:#4f7dff ; text-decoration: none; display: inline-block; padding: 0.4rem 0; }
+a:hover { color:#f5f5f5; }
         .panel {
             border: 1px solid #262833;
             background: radial-gradient(circle at top left, #151824 0, #050608 55%);
@@ -78,6 +81,7 @@ Deterministic, client-side inspection of Cloudflare connection metadata.
 All processing happens locally using client-side code.
 No tracking, no analytics, no network calls.
             </p>
+<p>For better privacy, you can also use our <a href="/tools/email-alias/">email alias generator</a> to create unique addresses for each service.</p>
         </section>
 
         <section class="panel">
