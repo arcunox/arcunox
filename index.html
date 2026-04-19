@@ -1,160 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Arcunox — No noise. No tracking. Just tools.</title>
-  <link rel="canonical" href="https://arcunox.com/">
-  <meta name="description" content="Privacy-first tools for encoding, decoding, formatting, and inspecting data. No tracking, no analytics, no noise.">
-  <meta name="theme-color" content="#050608">
-  <link rel="icon" href="data:,">
-  <style>
-    :root { color-scheme: dark; }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      padding: 2rem;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #050608;
-      color: #f5f5f5;
-      line-height: 1.6;
-    }
-    main {
-      max-width: 880px;
-      margin: auto;
-      display: grid;
-      gap: 2.5rem;
-    }
-    h1 {
-      font-size: 2rem;
-      letter-spacing: 0.04em;
-      margin: 0 0 0.4rem;
-      color: #f5f5f5;
-      font-weight: 500;
-    }
-    .tagline {
-      color: #5f6475;
-      font-size: 0.95rem;
-      margin: 0;
-      letter-spacing: 0.02em;
-    }
-    .flagship {
-      border-left: 1px solid #4f7dff;
-      padding: 0.75rem 1.25rem;
-      background: #0b0d14;
-    }
-    .flagship-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: #4f7dff;
-      margin: 0 0 0.3rem;
-    }
-    .flagship-title {
-      font-size: 1.1rem;
-      color: #f5f5f5;
-      margin: 0 0 0.3rem;
-      font-weight: 500;
-    }
-    .flagship-desc {
-      font-size: 0.88rem;
-      color: #8b8fa0;
-      margin: 0 0 0.6rem;
-      max-width: 52ch;
-    }
-    .flagship a {
-      color: #4f7dff;
-      text-decoration: none;
-      font-size: 0.88rem;
-      letter-spacing: 0.04em;
-    }
-    .flagship a:hover { color: #f5f5f5; }
-    .section-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: #5f6475;
-      margin: 0 0 0.75rem;
-    }
-    .tools {
-      display: grid;
-      gap: 0;
-    }
-    .tools a {
-      text-decoration: none;
-      color: #b3b3b3;
-      font-size: 0.95rem;
-      padding: 0.4rem 0;
-      border-bottom: 1px solid #131520;
-      letter-spacing: 0.01em;
-      display: block;
-    }
-    .tools a:hover { color: #4f7dff; }
-    footer {
-      font-size: 0.85rem;
-      color: #5f6475;
-      padding-top: 1rem;
-      border-top: 1px solid #131520;
-    }
-    footer a {
-      color: #5f6475;
-      text-decoration: none;
-      margin-right: 1.25rem;
-      display: inline-block;
-    }
-    footer a:hover { color: #8b8fa0; }
-    @media (max-width: 600px) {
-      body { padding: 1.5rem; }
-      main { gap: 2rem; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<title>Arcunox / No noise. No tracking. Just tools.</title>
+<meta name="description" content="Privacy first tools for encoding, decoding, formatting, and inspecting data. No tracking, no analytics, no noise.">
+<style>
+  /* Base Reset & Colors */
+  * { box-sizing: border-box; }
+  html, body { 
+    margin: 0; padding: 0; 
+    background: #050609; 
+    color: #888; /* Dimmed secondary text */
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+  }
+
+  /* Layout Container */
+  main { 
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding: 60px 20px; 
+  }
+
+  /* Typography & Classy Accents */
+  h1 { 
+    color: #f5f5f5; 
+    font-size: 14px; 
+    text-transform: uppercase; 
+    letter-spacing: 0.3em; 
+    margin-bottom: 8px;
+  }
+  
+  .subtitle { 
+    font-size: 12px; 
+    text-transform: uppercase; 
+    letter-spacing: 0.1em; 
+    color: #555; 
+    margin-bottom: 40px;
+  }
+
+  h2 { 
+    color: #f5f5f5; 
+    font-size: 11px; 
+    text-transform: uppercase; 
+    letter-spacing: 0.15em; 
+    margin-bottom: 20px;
+    border-bottom: 1px solid #1a1c22;
+    padding-bottom: 10px;
+  }
+
+  /* The Tool Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1px;
+    background: #1a1c22; /* The 'Line' color */
+    border: 1px solid #1a1c22;
+  }
+
+  /* The Links - Where the 'Alive' color lives */
+  .grid a {
+    background: #050609;
+    color: #aaa;
+    text-decoration: none;
+    padding: 16px;
+    font-size: 13px;
+    transition: all 0.1s ease;
+  }
+
+  .grid a:hover {
+    color: #4f7dff; /* Your Alive Color */
+    background: #0b0c10;
+    padding-left: 20px; /* Subtle movement */
+  }
+
+  /* Footer Nav */
+  footer { 
+    max-width: 800px; 
+    margin: 40px auto; 
+    padding: 20px;
+    border-top: 1px solid #1a1c22;
+  }
+
+  footer nav { display: flex; gap: 20px; flex-wrap: wrap; }
+
+  footer a {
+    color: #444;
+    text-decoration: none;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  footer a:hover { color: #f5f5f5; }
+
+  /* Selection color */
+  ::selection { background: rgba(79, 125, 255, 0.3); color: #fff; }
+</style>
 </head>
 <body>
-  <main>
 
-    <section>
-      <h1>Arcunox</h1>
-      <p class="tagline">No noise. No tracking. Just tools.</p>
-    </section>
+<main>
+  <header>
+    <h1>Arcunox</h1>
+    <p class="subtitle">No noise. No tracking. Just tools.</p>
+  </header>
 
-    <section class="flagship">
-      <p class="flagship-label">Featured</p>
-      <p class="flagship-title">Email Alias Generator</p>
-      <p class="flagship-desc">Generate unique aliases to protect your inbox from spam, tracking, and data leaks. Runs entirely in your browser.</p>
-      <a href="/tools/emailalias/">Open tool →</a>
-    </section>
+  <section>
+    <h2>Tools</h2>
+    <div class="grid">
+      <a href="/tools/base64/">base64 encode / decode</a>
+      <a href="/tools/emailalias/">email alias generator</a>
+      <a href="/tools/epochconvert/">epoch converter</a>
+      <a href="/tools/epochnow/">epoch live</a>
+      <a href="/tools/htmlescape/">html escape</a>
+      <a href="/tools/headers/">http headers</a>
+      <a href="/tools/ip/">ip address</a>
+      <a href="/tools/ipinfo/">ip info</a>
+      <a href="/tools/json/">json formatter</a>
+      <a href="/tools/jwt/">jwt decoder</a>
+      <a href="/tools/hash/">sha-256 hash</a>
+      <a href="/tools/time/">time converter</a>
+      <a href="/tools/url/">url encoder / decoder</a>
+      <a href="/tools/ua/">user agent</a>
+      <a href="/tools/uuidbulk/">uuid bulk generator</a>
+      <a href="/tools/uuid/">uuid generator</a>
+    </div>
+  </section>
+</main>
 
-    <section>
-      <p class="section-label">Tools</p>
-      <div class="tools">
-        <a href="/tools/base64/">base64 encode / decode</a>
-        <a href="/tools/epochconvert/">epoch converter</a>
-        <a href="/tools/epochnow/">epoch live</a>
-        <a href="/tools/htmlescape/">html escape</a>
-        <a href="/tools/headers/">http headers</a>
-        <a href="/tools/ip/">ip address</a>
-        <a href="/tools/ipinfo/">ip info</a>
-        <a href="/tools/json/">json formatter</a>
-        <a href="/tools/jwt/">jwt decoder</a>
-        <a href="/tools/hash/">sha-256</a>
-        <a href="/tools/time/">time converter</a>
-        <a href="/tools/url/">url encoder / decode</a>
-        <a href="/tools/ua/">user agent</a>
-        <a href="/tools/uuidbulk/">uuid bulk generator</a>
-        <a href="/tools/uuid/">uuid generator</a>
-      </div>
-    </section>
+<footer>
+  <nav>
+    <a href="/">home</a>
+    <a href="/documentation/">documentation</a>
+    <a href="/privacy/">privacy</a>
+    <a href="/philosophy/">philosophy</a>
+    <a href="https://github.com/arcunox">github</a>
+  </nav>
+</footer>
 
-    <footer>
-      <nav>
-        <a href="/">home</a>
-        <a href="/documentation/">documentation</a>
-        <a href="/privacy/">privacy</a>
-        <a href="/philosophy/">philosophy</a>
-        <a href="https://github.com/arcunox">github</a>
-      </nav>
-    </footer>
-
-  </main>
 </body>
 </html>
