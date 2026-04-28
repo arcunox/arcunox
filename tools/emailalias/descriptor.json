@@ -1,0 +1,13 @@
+{
+"name": "emailalias",
+"type": "utility",
+"description": "Generate unique email aliases for signups.",
+"inputs": ["base_email", "tag"],
+"outputs": ["alias"],
+"examples": [
+{
+"input": {"base_email": "myaccount@example.com", "tag": "github"},
+"output": "grto-7anw-myaccount@example.com"
+}
+]
+}
