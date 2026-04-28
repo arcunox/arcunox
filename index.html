@@ -1,156 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8" />
 <link rel="icon" href="data:,">
-<title>Arcunox / No noise. No tracking. Just tools.</title>
-<meta name="description" content="Privacy first tools for encoding, decoding, formatting, and inspecting data. No tracking, no analytics, no noise.">
-<meta name="color-scheme" content="dark">
+<title>Arcunox Alias Generator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Email alias generator for privacy-focused workflows.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"Arcunox","operatingSystem":"Web","applicationCategory":"Utility","url":"https://arcunox.com"},{"@type":"WebSite","url":"https://arcunox.com","name":"Arcunox","potentialAction":{"@type":"SearchAction","target":"https://arcunox.com/?q={query}","query-input":"required name=query"}},{"@type":"Organization","name":"Arcunox","url":"https://arcunox.com"}]}
+</script>
 <style>
-  /* Base Reset & Colors */
-  * { box-sizing: border-box; }
-  html, body { 
-    margin: 0; padding: 0; 
-    background: #050609; 
-    color: #949494; /* Accessible Contrast Fix */
-    font-family: system-ui, -apple-system, sans-serif;
-    line-height: 1.5;
-  }
+:root {
+--bg-black: #000000;
+--bg-charcoal: #0a0a0a;
+--bg-graphite: #1a1a1a;
+--border-gray: #2a2a2a;
+--text-white: #ffffff;
+--text-gray: #a0a0a0;
+--accent-blue: #58a6ff;
 
-  /* Global Container Alignment - The "0 Drift" Rule */
-  header, main, footer {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px; /* Uniform horizontal gutter */
-  }
-
-  header {
-    padding-top: 60px;
-  }
-
-  main { 
-    padding-bottom: 60px; 
-  }
-
-  /* Typography */
-  h1 { 
-    color: #f5f5f5; 
-    font-size: 14px; 
-    text-transform: uppercase; 
-    letter-spacing: 0.3em; 
-    margin-bottom: 8px;
-    margin-top: 0;
-  }
-  
-  .subtitle { 
-    font-size: 12px; 
-    text-transform: uppercase; 
-    letter-spacing: 0.1em; 
-    color: #999; 
-    margin-bottom: 40px;
-  }
-
-  h2 { 
-    color: #f5f5f5; 
-    font-size: 11px; 
-    text-transform: uppercase; 
-    letter-spacing: 0.15em; 
-    margin-bottom: 20px;
-    border-bottom: 1px solid #1a1c22;
-    padding-bottom: 10px;
-  }
-
-  /* The Tool Grid */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1px;
-    background: #1a1c22;
-    border: 1px solid #1a1c22;
-  }
-
-  .grid a {
-    display: block; /* Hitbox fix */
-    background: #050609;
-    color: #aaa;
-    text-decoration: none;
-    padding: 16px;
-    font-size: 13px;
-    transition: all 0.1s ease;
-  }
-
-  .grid a:hover {
-    color: #4f7dff; 
-    background: #0b0c10;
-    padding-left: 20px; 
-  }
-
-  /* Footer Nav */
-  footer { 
-    margin-top: 40px;
-    margin-bottom: 40px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-top: 1px solid #1a1c22;
-  }
-
-  footer nav { display: flex; gap: 20px; flex-wrap: wrap; }
-
-  footer a {
-    color: #999;
-    text-decoration: none;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  footer a:hover { color: #f5f5f5; }
-
-  ::selection { background: rgba(79, 125, 255, 0.3); color: #fff; }
+--space-0: 0;
+--space-1: 4px;
+--space-2: 8px;
+--space-3: 16px;
+--space-4: 24px;
+--space-5: 32px;
+--space-6: 48px;
+--space-7: 64px;
+--space-8: 96px;
+}
+* {box-sizing: border-box;margin: 0;padding: 0;}
+html, body {font-size: var(--space-3); background: var(--bg-black);color: var(--text-white);font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;}
+body {display: flex;flex-direction: column;min-height: 100vh;}
+.page {max-width: 1440px;margin: 0 auto;padding: var(--space-7) var(--space-6);}
+@media (max-width: 900px) {
+.page {padding: var(--space-5) var(--space-3);}}
+.nav {display: flex;align-items: center;justify-content: space-between;border-bottom: 2px solid var(--border-gray);padding-bottom: var(--space-3);margin-bottom: var(--space-6);}
+.nav-logo {font-weight: 700;letter-spacing: 0.12em;font-size: 14px;}
+.nav-links {display: flex;gap: var(--space-4);font-size: 14px;}
+.nav-link {text-decoration: none;color: var(--text-white);text-transform: uppercase;letter-spacing: 0.08em;border-bottom: 1px solid transparent;padding-bottom: 2px;}
+.nav-link:hover {border-bottom-color: var(--text-white);}
+.hero {display: grid;grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);gap: var(--space-6);margin-bottom: var(--space-7);}
+@media (max-width: 900px) {.hero {grid-template-columns: 1fr;}}
+.hero-title {font-size: 48px;font-weight: 800;text-transform: uppercase;line-height: 1.05;margin-bottom: var(--space-4);}
+.hero-subtitle {font-size: 18px;color: var(--text-gray);max-width: 32rem;margin-bottom: var(--space-5);}
+.hero-info {display: flex;flex-direction: column;gap: 8px;}
+.hero-info-label {font-size: 12px;letter-spacing: 0.16em;text-transform: uppercase;color: var(--text-gray);}
+.hero-info-list {list-style: none;padding: 0;margin: 0;color: var(--text-gray);font-size: 14px;line-height: 1.4;}
+.hero-info-list li strong {color: var(--text-white);font-weight: 600;}
+.hero-slab {background: var(--bg-charcoal);border: 2px solid var(--border-gray);padding: var(--space-5);display: flex;flex-direction: column;gap: var(--space-4);}
+.hero-slab-label {font-size: 12px;letter-spacing: 0.16em;text-transform: uppercase;color: var(--text-gray);}
+.console {border: 2px solid var(--border-gray);background: var(--bg-black);font-family: "JetBrains Mono", monospace;font-size: 14px;}
+.console-row {border-bottom: 2px solid var(--border-gray);padding: var(--space-3) var(--space-4);}
+.console-row:last-child {border-bottom: none;}
+.console-label {text-transform: uppercase;letter-spacing: 0.16em;font-size: 11px;color: var(--text-gray);margin-bottom: var(--space-2);}
+.console-input {width: 100%;background: var(--bg-charcoal);border: 2px solid var(--border-gray);color: var(--text-white);padding: 10px 12px;font-family: inherit;font-size: 14px;}
+.console-input:focus {outline: none;border-color: var(--accent-blue);}
+.mode-toggle {display: inline-flex;gap: var(--space-2);flex-wrap: wrap;}
+.mode-pill {padding: 6px 12px;border: 2px solid var(--border-gray);text-transform: uppercase;letter-spacing: 0.12em;font-size: 11px;cursor: pointer;}
+.mode-pill.active {background: var(--text-white);color: var(--bg-black);border-color: var(--text-white);}
+.console-output {color: var(--accent-blue);margin-top: var(--space-2);word-break: break-all;}
+.console-actions {display: flex;align-items: center;gap: 12px;}
+.section {margin-bottom: var(--space-7);}
+.trust-beam {background: var(--bg-black);border-top: 2px solid var(--border-gray);border-bottom: 2px solid var(--border-gray);padding: var(--space-5) var(--space-4);text-align: center;font-size: 14px;text-transform: uppercase;letter-spacing: 0.16em;}
+.btn {border-radius: 0;border: 2px solid var(--text-white);padding: 8px 20px;font-size: 14px;text-transform: uppercase;letter-spacing: 0.12em;cursor: pointer;background: transparent;color: var(--text-white);}
+.btn-primary {background: var(--text-white);color: var(--bg-black);}
+.btn-primary:hover {background: var(--bg-black);color: var(--text-white);}
+.btn-secondary:hover {border-color: var(--accent-blue);}
+.site-footer {border-top: 1px solid var(--border-gray);padding: var(--space-4) 0;font-family: "JetBrains Mono", monospace;font-size: 12px;display: flex;justify-content: space-between;align-items: center;gap: var(--space-4);margin-top: var(--space-7);}
+.site-footer-left {letter-spacing: 0.12em;text-transform: uppercase;color: var(--text-gray);}
+.site-footer-links {display: flex;gap: var(--space-3);flex-wrap: wrap;}
+.site-footer-link {text-decoration: none;color: var(--text-gray);text-transform: uppercase;letter-spacing: 0.12em;}
+.site-footer-link:hover {color: var(--text-white);}
+@media (max-width: 900px) {.site-footer {flex-direction: column;align-items: flex-start;}}
 </style>
 </head>
 <body>
-
-    <header>
-    <h1>Arcunox</h1>
-    <p class="subtitle">No noise. No tracking. Just tools.</p>
-  </header>
-
-<main role="main">
-
-<section>
-    <h2>Tools</h2>
-    <div class="grid">
-      <a href="/tools/base64/">base64 encode / decode</a>
-      <a href="/tools/emailalias/">email alias generator</a>
-      <a href="/tools/epochconvert/">epoch converter</a>
-      <a href="/tools/epochnow/">epoch live</a>
-      <a href="/tools/htmlescape/">html escape</a>
-      <a href="/tools/headers/">http headers</a>
-      <a href="/tools/ip/">ip address</a>
-      <a href="/tools/ipinfo/">ip info</a>
-      <a href="/tools/json/">json formatter</a>
-      <a href="/tools/jwt/">jwt decoder</a>
-      <a href="/tools/hash/">sha-256 hash</a>
-      <a href="/tools/time/">time converter</a>
-      <a href="/tools/url/">url encoder / decoder</a>
-      <a href="/tools/ua/">user agent</a>
-      <a href="/tools/uuidbulk/">uuid bulk generator</a>
-      <a href="/tools/uuid/">uuid generator</a>
-    </div>
-  </section>
+<div class="page">
+<header class="nav">
+<div class="nav-logo">ARCUNOX</div>
+<nav class="nav-links">
+<a href="#generator" class="nav-link">Alias Generator</a>
+</nav>
+</header>
+<main>
+<section class="hero">
+<div>
+<h1 class="hero-title">Email Alias Generator</h1>
+<p class="hero-subtitle">
+An identity engine for privacy-preserving <strong>email aliases</strong>.
+Inspectable logic. No hidden state. No sentiment.
+Generates clean, reusable <strong>email alias surfaces</strong> for controlled, long-term identity workflows.
+</p>
+<div class="hero-info">
+<div class="hero-info-label">How it works</div>
+<ul class="hero-info-list">
+<li><strong>Input:</strong> Provide a seed — email, domain, context phrase, or any custom string.</li>
+<li><strong>Transform:</strong> Inspectable logic. No tracking, no analytics.</li>
+<li><strong>Output:</strong> A stable, reusable alias you can rotate or dedicate to services.</li>
+</ul>
+</div>
+</div>
+<aside class="hero-slab" id="generator">
+<div class="hero-slab-label">Inline console</div>
+<div class="console">
+<div class="console-row">
+<div class="console-label">Input seed</div>
+<input class="console-input" placeholder="enter seed or context" />
+</div>
+<div class="console-row">
+<div class="console-label">Input Domain</div>
+<input class="console-input" placeholder="enter domain" />
+</div>
+<div class="console-row">
+<div class="console-label">Prefix</div>
+<div class="mode-toggle">
+<div class="mode-pill active">Yes</div>
+<div class="mode-pill">No</div>
+</div>
+</div>
+<div class="console-row">
+<div class="console-label">Seperator</div>
+<div class="mode-toggle">
+<div class="mode-pill active">None</div>
+<div class="mode-pill">Underscore</div>
+<div class="mode-pill">Hyphen</div>
+<div class="mode-pill">Period</div>
+</div>
+</div>
+<div class="console-row">
+<div class="console-label">Output</div>
+<div class="console-output">arcunox-7f3a9c</div>
+</div>
+<div class="console-row console-actions">
+<button class="btn btn-primary">Generate</button>
+<button class="btn btn-primary">Copy</button>
+</div>
+</div>
+</aside>
+</section>
+<section class="section">
+<div class="trust-beam">
+<p>No tracking . No analytics . All client-side</p>
+</div>
+</section>
 </main>
-
-<footer role="contentinfo">
-  <nav role="navigation" aria-label="Footer">
-    <a href="/">home</a>
-    <a href="/documentation/">documentation</a>
-    <a href="/privacy/">privacy</a>
-    <a href="/philosophy/">philosophy</a>
-    <a href="https://github.com/arcunox">github</a>
-  </nav>
+<footer class="site-footer">
+<div class="site-footer-left"></div>
+<div class="site-footer-links">
+<a href="/" class="site-footer-link">Home</a>
+<a href="/documentation/" class="site-footer-link">Documentation</a>
+<a href="/privacy/" class="site-footer-link">Privacy</a>
+<a href="/philosophy/" class="site-footer-link">Philosophy</a>
+<a href="https://github.com/arcunox" class="site-footer-link">GitHub</a>
+</div>
 </footer>
-
+</div>
+<script type="application/json" id="modes-data">
+{
+"abstract": {
+"prefixes": ["arc","nox","vex","umbr","frx","sol","krn","astr","vel","vox","alt","neb","drx","lumen","grt","slg","nova","ign","mort","ten","vrax","stryx","hel","cor","flux","umbrx","par","qun","rft","blk","scr","glt","rnz","vlt","ory","zen","pri","drf","nll","shd","rzn","frc","soln","vlx","krx","nxt","vx","nx","vl","xr","dr","fn","tr","sk","rn","arcx","noxl","vexi","umbrl","frxn","solr","krm","astrx","vela","voxn","altr","nebr","drxm","luma","grtn","slgx","novr","igni","morl","tens","vraxn","stry","hela","cora","fluxn","umbrs","pars","quna","rfta","blka","scra","glta","rnxa","vlta","oryx","zena","pria","drfa","nlla","shda","rzna","frca","sola","vlxa","krxa","nxta","vxa","nxa","vla","xra","dra","fna","tra","ska","rna","arcl","noxi","vexr","umbrc","frxo","solm","krv","astrm","velx","voxa","altx","nebx","drxi","lumi","grtx","slgr","novx","ignx","mortx","tenx","vraxr","strym","helx","corx","fluxr","umbrv","parx","qunx","rftx","blkx","scrx","gltx","rnzx","vltx","oryn","zenx","prix","drfx","nllx","shdx","rznx","frcx","solx","vlxx","krxx","nxtx","vxx","nxx","vlr","xrn","drn","fnx","trx","skx","rnx","arcn","noxn","vexn","umbrn","soln","krnn","astrn","veln","altn","nebn","drxn","lumn","slgn","novn","ignn","mortn","tenn","stryn","heln","corn","parn","qunn","rftn","blkn","scrn","gltn","vltn","zenn","prin","drfn","nlln","shdn","rznn","frcn","vlxn","krxn","nxtn","vxn","nxn","vln","fnn","trn","skn","rnn","arco","noxo","vexo","umbro","solo","krno","astro","velo","voxo","alto","nebo","lumo","grto","slgo","novo","igno","morto","teno","stryo","helo","coro","paro","quno","blko","scro","glto","prio","drfo","nllo","shdo","rzno","frco","vlo","xro","dro","fno","tro","sko","rno","arcp","noxp","vexp","umbrp","solp","krnp","astrp","velp","voxp","altp","nebp","lump","grtp","slgp","novp","ignp","mortp","tenp","stryp","help","corp","parp","qunp","rftp","blkp","scrp","gltp","rnzp","vltp","oryp","zenp","prip","drfp","nllp","shdp","rznp","frcp","vlxp","krxp","nxtp","vxp","nxp","vlp","xrp","drp","fnp","trp","skp","rnp","arcq","noxq","vexq","umbrq","frxq","solq","krnq","astrq","velq","voxq","altq","nebq","drxq","lumq","grtq","slgq","novq","ignq","mortq","tenq","vraxq","stryq","helq","corq","fluxq","parq","qunq","rftq","blkq","scrq","gltq","rnzq","vltq","oryq","zenq","priq","drfq","nllq","shdq","rznq","frcq","vlxq","krxq","nxtq","vxq","nxq","vlq","xrq","drq","fnq","trq","skq","rnq","arcr","noxr","umbr","frxr","krnr","astrr","velr","voxr","lumr","grtr","ignr","mortr","tenr","stryr","helr","corr","parr","qunr","rftr","blkr","scrr","gltr","rnzr","vltr","oryr","zenr","prir","drfr","nllr","shdr","rznr","frcr","nxtr","vxr","nxr","xrr","drr","fnr","trr","skr","rnr","arcs","noxs","vexs","umbras","frxs","sols","krns","astrs","vels","voxs","alts","nebs","drxs","lums","grts","slgs","novs","igns","morts","tens","vraxs","strys","hels","cors","fluxs","pars","quns","rfts","blks","scrs","glts","rnzs","vlts","orys","zens","pris","drfs","nlls","shds","rzns","frcs","vls","xrs","drs","fns","trs","sks","rns"],
+"shards":   ["rix","tor","nus","ium","aris","atus","vox","lux","rax","nix","vex","rixx","lix","lor","nar","var","zor","kor","mir","tir","lir","sur","vor","raxus","lumen","core","flux","void","nova","phase","line","fract","null","shard","static","break","rust","scar","crux","vorn","strix","onyx","pyre","flare","pulse","rift","drift","ember","cinder","ashen","crypt","glyph","sigil","vexil","astris","helix","orion","zenith","umbrix","solis","noxis","altor","velum","quant","prism","arcus","corax","ferox","ignis","mortis","teneb","umbra","umbrae","umbran","umbric","umbral","fracta","fractum","fractix","fracton","fractus","fractor","fractal","fluxa","fluxor","fluxum","fluxix","fluxen","fluxar","voida","voidum","voidix","voidor","voiden","voidra","novae","novar","novix","novum","novon","novra","linea","linear","linex","linor","linum","linix","phasea","phasor","phasum","phasix","phasra","corex","corum","corix","coran","corin","corra","nulla","nullix","nullor","nullum","nullen","nullar","sharda","shardum","shardix","shardor","sharden","shardra","staticx","staticum","staticor","staticen","staticra","breaka","breakum","breakix","breakor","breaken","breakra","rustix","rustum","rustor","rusten","rustra","scarix","scarum","scaror","scaren","scarra","cruxis","cruxum","cruxor","cruxen","cruxra","vornix","vornum","vornor","vornra","strixx","strixum","strixor","strixen","strixra","onyxa","onyxum","onyxor","onyxen","onyxra","pyrex","pyra","pyrum","pyror","pyren","pyrr","flarex","flarum","flarix","flaron","flarra","pulsa","pulsix","pulsor","pulsum","pulsen","pulsra","riftix","riftum","riftor","riften","riftra","drifta","driftix","driftor","driftum","driften","driftra","embera","emberix","emberor","emberum","emberen","emberra","cindra","cindrix","cindor","cindum","cinden","ashix","ashum","ashor","ashen","ashra","crypta","cryptix","cryptor","cryptum","crypten","cryptra","glypha","glyphix","glyphor","glyphum","glyphra","sigila","sigilix","sigilor","sigilum","sigilen","sigilra","vexra","vexum","vexor","vexen","vexla","astrix","astrum","astror","astren","astrra","helixa","helixum","helixor","helixen","helixra","orixa","orixum","orixor","orixen","orixra","zenra","zenum","zenor","zenen","zenix","solix","solum","solor","solen","solra","noxum","noxor","noxen","noxra","altix","altum","altor","alten","altra","velix","velum","velor","velen","velra","quantix","quantum","quantor","quanten","quantra","prisma","prismix","prismor","prismum","prismen","prismra","arcix","arcum","arcor","arcen","arcra","ferix","ferum","feror","feren","ferra","ignix","ignum","ignor","ignen","ignra","mortix","mortum","mortor","morten","mortra","tenix","tenum","tenor","tenen","tenra","rx","nx","vx","lx","kr","zr","xr","tr","dr","fr","gr","br","pr","sr","cl","sk","sn","rk","rn","rm","rt","rd","rl","zz","xx","kk","nn","mm","pp","tt","ss","rr","qz","xz","vz","nz","rz","lz","kz","gz","bz","pz","sz","arx","nixx","vexx","ulx","orn","vyr","kry","gry","sly","dry","fry","try","pry","zry","xry","vyrn","kryn","gryn","slyn","dryn","fryn","tryn","pryn","zryn","xryn","arct","noxt","vext","umbrt","frxt","solt","krnt","astrt","velt","voxt","altt","nebt","drxt","lumt","grtt","slgt","novt","ignt","mortt","tent","vraxt","stryt","helt","cort","fluxt","parx","qunt","rftt","blkt","scrt","gltt","rnzt","vltt","oryt","zent","prit","drft","nllt","shdt","rznt","frct","solx","vlxt","krxt","nxtt","vxt","nxt","vlnt","xrnt","drnt","fnnt","trnt","sknt","rnnt","arco","noxo","vexo","umbro","frxo","solo","krno","astro","velo","voxo","alto","nebo","lumo","grto","slgo","novo","igno","morto","teno","vraxo","stryo","helo","coro","fluxo","paro","quno","rfto","blko","scro","glto","rnzo","vlto","oryo","zeno","prio","drfo","nllo","shdo","rzno","frco","vlo","xro","dro","fno","tro","sko","rno","arcp","noxp","vexp","umbrp","frxp","solp","krnp","astrp","velp","voxp","altp","nebp","lump","grtp","slgp","novp","ignp","mortp","tenp","vraxp","stryp","help","corp","fluxp","parp","qunp","rftp","blkp","scrp","gltp","rnzp","vltp","oryp","zenp","prip","drfp","nllp","shdp","rznp","frcp","vlxp","krxp","nxtp","vxp","nxp","vlp","xrp","drp","fnp","trp","skp","rnp","arcq","noxq","vexq","umbrq","frxq","solq","krnq","astrq","velq","voxq","altq","nebq","drxq","lumq","grtq","slgq","novq","ignq","mortq","tenq","vraxq","stryq","helq","corq","fluxq","parq","qunq","rftq","blkq","scrq","gltq","rnzq","vltq","oryq","zenq","priq","drfq","nllq","shdq","rznq","frcq","vlxq","krxq","nxtq","vxq","nxq","vlq","xrq","drq","fnq","trq","skq","rnq"]
+}
+}
+</script>
+<script>
+MODES = JSON.parse(document.querySelector("#modes-data").textContent);
+function randInt(min, max) { const range = max - min + 1; const buf = new Uint32Array(1); crypto.getRandomValues(buf); return min + (buf[0] % range); }
+function randomChoice(arr) { return arr[randInt(0, arr.length - 1)]; }
+function randomEntropy(len) { const letters = "abcdefghjkmnpqrstuvwxyz"; const digits = "23456789"; const chars = letters + digits; let out = ""; for (let i = 0; i < len; i++) { out += chars.charAt(randInt(0, chars.length - 1)); } if (!/[0-9]/.test(out)) { const pos = randInt(0, len - 1); const digit = digits.charAt(randInt(0, digits.length - 1)); out = out.substring(0, pos) + digit + out.substring(pos + 1); } return out; }
+function normalizeShard(seed, fallbackShards) { const s = (seed || "").trim(); if (!s) return randomChoice(fallbackShards); return s.toLowerCase().replace(/\s+/g, "-"); }
+const consoleInputs = document.querySelectorAll(".console-input");
+const seedInput = consoleInputs[0];
+const domainInput = consoleInputs[1];
+const prefixPills = document.querySelectorAll("#generator .console-row:nth-child(3) .mode-pill");
+const sepPills = document.querySelectorAll("#generator .console-row:nth-child(4) .mode-pill");
+const outputEl = document.querySelector("#generator .console-output");
+const actionButtons = document.querySelectorAll("#generator .console-actions .btn");
+const generateBtn = actionButtons[0];
+const copyBtn = actionButtons[1];
+let prefixEnabled = true;
+let separator = "";
+let currentMode = "abstract";
+function wirePills(pills, callback) { pills.forEach(pill => { pill.addEventListener("click", () => { pills.forEach(p => p.classList.remove("active")); pill.classList.add("active"); callback(pill.textContent.trim().toLowerCase()); }); }); }
+wirePills(prefixPills, val => { prefixEnabled = (val === "yes"); });
+wirePills(sepPills, val => { if (val === "none") separator = ""; else if (val === "underscore") separator = "_"; else if (val === "hyphen") separator = "-"; else if (val === "period") separator = "."; });
+function generateAlias() { const mode = MODES[currentMode]; const seed = seedInput.value.trim(); const domainRaw = domainInput.value.trim().toLowerCase(); const domain = domainRaw === "" ? "" : domainRaw; const prefix = randomChoice(mode.prefixes); const entropy = randomEntropy(randInt(4, 6)); const shard = normalizeShard(seed, mode.shards); let localPart = ""; if (prefixEnabled) { localPart = `${prefix}${separator}${entropy}${separator}${shard}`; } else { localPart = `${entropy}${separator}${shard}`; } let alias = domain === "" ? localPart : `${localPart}@${domain}`; alias = alias.toLowerCase(); outputEl.textContent = alias; return alias; }
+copyBtn.addEventListener("click", async () => { const alias = outputEl.textContent.trim(); if (!alias) return; try { await navigator.clipboard.writeText(alias); const original = copyBtn.textContent; copyBtn.textContent = "Copied"; setTimeout(() => (copyBtn.textContent = original), 900); } catch (e) {} });
+generateBtn.addEventListener("click", generateAlias);
+generateAlias();
+</script>
 </body>
 </html>
